@@ -3,114 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammad Yusuf | Portfolio</title>
+  <title>Yusuf's Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a2e, #16213e);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
     header {
-      background: #1e3a8a;
-      color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 1rem;
+      animation: fadeDown 1s ease;
     }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { margin: 0.5rem 0; font-size: 1.2rem; }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
     nav a {
       margin: 0 1rem;
-      color: #facc15;
       text-decoration: none;
-      font-weight: bold;
+      color: #00d9ff;
+      transition: color 0.3s ease;
     }
+
+    nav a:hover {
+      color: #ff4ecd;
+    }
+
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 3rem 2rem;
+      max-width: 1000px;
       margin: auto;
     }
+
     h2 {
-      border-bottom: 2px solid #1e3a8a;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      color: #1e3a8a;
-    }
-    ul { list-style: square; padding-left: 1.5rem; }
-    .skills span {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #00d9ff;
       display: inline-block;
-      background: #1e3a8a;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      margin: 0.3rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      padding-bottom: 0.3rem;
     }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeUp 1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #00d9ff;
+    }
+
     footer {
       text-align: center;
-      background: #1e3a8a;
-      color: white;
-      padding: 1rem;
+      padding: 2rem;
       margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Mohammad Yusuf</h1>
-    <p>High School Junior | STEM Enthusiast | Future Engineer</p>
-    <nav>
-      <a href="mailto:myusufwlp@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/mohammad-yusuf18" target="_blank">LinkedIn</a>
-    </nav>
+    <p>High School Junior | STEM Enthusiast | Robotics & Coding Explorer</p>
   </header>
 
+  <nav>
+    <a href="mailto:myusufwlp@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/mohammad-yusuf-735949314" target="_blank">LinkedIn</a>
+  </nav>
+
   <section>
-    <h2>About Me</h2>
-    <p>
-      I’m a high school junior passionate about physics, computer science, and engineering. 
-      I love creating solutions that merge STEM with real-world impact. 
-      Through experiences like my <b>Xperience Consulting Internship</b>, I’ve led STEM camps 
-      where I taught 3D printing, mechanics, Minecraft coding, and electrical circuits—helping 
-      15+ students build creativity, teamwork, and problem-solving skills.
-    </p>
+    <h2>Experience</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Xperience Consulting 501c3 — STEM Tutor Intern</h3>
+        <p><em>June 2025 – August 2025</em></p>
+        <ul>
+          <li>Led 4 multi-day STEM camps (15+ students each) on 3D printing, mechanics, coding, and circuits</li>
+          <li>Planned and taught lessons for 3D printing camp, guiding students through design-to-print projects</li>
+          <li>Fostered creativity, problem-solving, and teamwork through hands-on projects</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Python</span>
-      <span>Robotics</span>
-      <span>HTML/CSS</span>
-      <span>Problem-Solving</span>
-      <span>Collaboration</span>
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Spot Reservation Booking App</h3>
+        <p>Built with React, this app allows users to reserve event spots with live availability updates.</p>
+      </div>
+      <div class="card">
+        <h3>Visual Cursor Movement</h3>
+        <p>Created with OpenCV, enabling cursor control with eye movement for accessibility.</p>
+      </div>
+      <div class="card">
+        <h3>Coming Soon 🚀</h3>
+        <p>More exciting projects are in the works — stay tuned!</p>
+      </div>
     </div>
   </section>
 
   <section>
     <h2>Awards</h2>
-    <ul>
-      <li>AP Scholar with Distinction</li>
-      <li>2nd place in Robot Tour — Science Olympiad State (2025)</li>
-      <li>ICTM Math Team State Champion (1st in Calculator Team, 2nd in 2-person event, 2025)</li>
-      <li>HackVH — 1st place ($400 prize) for innovative CS project (2025)</li>
-      <li>STEAM Showcase Runner-Up for Health Science Application (2024, 2025)</li>
-      <li>Sugarman Award for Spanish Excellence (2024, 2025)</li>
-    </ul>
+    <div class="cards">
+      <div class="card">
+        <h3>AP Scholar with Distinction</h3>
+      </div>
+      <div class="card">
+        <h3>2nd Place — Science Olympiad State</h3>
+        <p>Robot Tour Event (2025)</p>
+      </div>
+      <div class="card">
+        <h3>ICTM Math Team State Champion</h3>
+        <p>1st in Calculator Team, 2nd in 2-Person Event (2025)</p>
+      </div>
+      <div class="card">
+        <h3>HackVH — 1st Place</h3>
+        <p>Won $400 prize for an innovative CS project (2025)</p>
+      </div>
+      <div class="card">
+        <h3>STEAM Showcase Runner-Up</h3>
+        <p>Recognized for Health Science Application (2024 & 2025)</p>
+      </div>
+      <div class="card">
+        <h3>Sugarman Award</h3>
+        <p>Excellence in Spanish (2024 & 2025)</p>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><b>Spot Reservation Booking App (React):</b> Built a web app for reserving spots during social events.</li>
-      <li><b>Visual Cursor Movement (OpenCV):</b> Developed a program enabling users to control their cursor with eye movement.</li>
-      <li><b>Coming Soon:</b> Telescope Tracker, Smart Router/Firewall, Solar-Powered Water Quality Tester, Robotic Painter, Smart Scarecrow, Hologram Message Cube, Productivity Website, Phishing Detecting Browser Extension, and more!</li>
-    </ul>
+    <h2>Skills</h2>
+    <div class="cards">
+      <div class="card"><h3>Python</h3></div>
+      <div class="card"><h3>Robotics</h3></div>
+      <div class="card"><h3>HTML/CSS</h3></div>
+      <div class="card"><h3>Problem-Solving</h3></div>
+      <div class="card"><h3>Collaboration</h3></div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Mohammad Yusuf | Built with ❤️ and HTML</p>
+    <p>© 2025 Mohammad Yusuf. All rights reserved.</p>
   </footer>
 </body>
 </html>
