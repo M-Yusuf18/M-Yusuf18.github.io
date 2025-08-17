@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yusuf's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohammad Yusuf | Portfolio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,13 +13,18 @@
       color: #333;
     }
     header {
-      background: #0077cc;
+      background: #1e3a8a;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
     }
-    header h1 {
-      margin: 0;
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header p { margin: 0.5rem 0; font-size: 1.2rem; }
+    nav a {
+      margin: 0 1rem;
+      color: #facc15;
+      text-decoration: none;
+      font-weight: bold;
     }
     section {
       padding: 2rem;
@@ -27,119 +32,85 @@
       margin: auto;
     }
     h2 {
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
+      border-bottom: 2px solid #1e3a8a;
       padding-bottom: 0.5rem;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .project-card {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
-      font-style: italic;
-      color: #555;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .skill {
-      background: #0077cc;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .experience-item {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       margin-bottom: 1rem;
+      color: #1e3a8a;
     }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    ul { list-style: square; padding-left: 1.5rem; }
+    .skills span {
+      display: inline-block;
+      background: #1e3a8a;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      margin: 0.3rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #222;
+      background: #1e3a8a;
       color: white;
-    }
-    .links a {
-      margin: 0 1rem;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Mohammad Yusuf</h1>
+    <p>High School Junior | STEM Enthusiast | Future Engineer</p>
+    <nav>
+      <a href="mailto:myusufwlp@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/mohammad-yusuf18" target="_blank">LinkedIn</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Mohammad Yusuf</h1>
-  <p>High School Junior | Robotics & STEM Enthusiast</p>
-</header>
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I’m a high school junior passionate about physics, computer science, and engineering. 
+      I love creating solutions that merge STEM with real-world impact. 
+      Through experiences like my <b>Xperience Consulting Internship</b>, I’ve led STEM camps 
+      where I taught 3D printing, mechanics, Minecraft coding, and electrical circuits—helping 
+      15+ students build creativity, teamwork, and problem-solving skills.
+    </p>
+  </section>
 
-<section>
-  <h2>About Me</h2>
-  <p>Hi! I'm a high school junior passionate about physics, computer science, and engineering. I build projects that mix AI, sustainability, and STEM education. My goal is to create high-impact solutions and learn as much as I can along the way.</p>
-</section>
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Python</span>
+      <span>Robotics</span>
+      <span>HTML/CSS</span>
+      <span>Problem-Solving</span>
+      <span>Collaboration</span>
+    </div>
+  </section>
 
-<section>
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="project-card">Coming Soon</div>
-    <div class="project-card">Coming Soon</div>
-    <div class="project-card">Coming Soon</div>
-    <div class="project-card">Coming Soon</div>
-  </div>
-</section>
-
-<section>
-  <h2>Skills</h2>
-  <div class="skills-list">
-    <div class="skill">Python</div>
-    <div class="skill">Robotics</div>
-    <div class="skill">HTML/CSS</div>
-    <div class="skill">Problem-Solving</div>
-    <div class="skill">Collaboration</div>
-  </div>
-</section>
-
-<section>
-  <h2>Experience</h2>
-  <div class="experience-item">
-    <h3>Xperience Consulting 501(c)(3) — STEM Tutor Intern</h3>
-    <p><strong>Vernon Hills, IL | June 2025 – August 2025</strong></p>
+  <section>
+    <h2>Awards</h2>
     <ul>
-      <li>Led 4 multi-day STEM camps (3–4 days each) for 15+ students, covering 3D printing, mechanics, Minecraft coding, and electrical circuits</li>
-      <li>Planned and taught lessons for the 3D printing camp, guiding students through design-to-print projects</li>
-      <li>Guided students in hands-on projects, fostering creativity, problem-solving, and teamwork</li>
+      <li>AP Scholar with Distinction</li>
+      <li>2nd place in Robot Tour — Science Olympiad State (2025)</li>
+      <li>ICTM Math Team State Champion (1st in Calculator Team, 2nd in 2-person event, 2025)</li>
+      <li>HackVH — 1st place ($400 prize) for innovative CS project (2025)</li>
+      <li>STEAM Showcase Runner-Up for Health Science Application (2024, 2025)</li>
+      <li>Sugarman Award for Spanish Excellence (2024, 2025)</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>Contact & Links</h2>
-  <p class="links">
-    Email: <a href="mailto:myusufwlp@gmail.com">myusufwlp@gmail.com</a> | 
-    LinkedIn: <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-  </p>
-</section>
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><b>Spot Reservation Booking App (React):</b> Built a web app for reserving spots during social events.</li>
+      <li><b>Visual Cursor Movement (OpenCV):</b> Developed a program enabling users to control their cursor with eye movement.</li>
+      <li><b>Coming Soon:</b> Telescope Tracker, Smart Router/Firewall, Solar-Powered Water Quality Tester, Robotic Painter, Smart Scarecrow, Hologram Message Cube, Productivity Website, Phishing Detecting Browser Extension, and more!</li>
+    </ul>
+  </section>
 
-<footer>
-  &copy; 2025 Mohammad Yusuf
-</footer>
-
+  <footer>
+    <p>© 2025 Mohammad Yusuf | Built with ❤️ and HTML</p>
+  </footer>
 </body>
 </html>
