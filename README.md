@@ -1,16 +1,22 @@
-## Hi there 👋
+# Mohammad Yusuf's Portfolio
 
-<!--
-**AstroBean18/AstroBean18** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my personal portfolio!  
 
-Here are some ideas to get you started:
+I’m a high school junior passionate about STEM, robotics, and computer science. Here, you can learn more about me, my projects, and how to get in touch.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## About Me
+I enjoy building projects that combine AI, sustainability, and hands-on engineering. My goal is to create high-impact solutions while learning and growing in STEM fields.
+
+## Projects
+Currently, projects are coming soon! Check back later to see my work.
+
+## Skills
+- Python
+- Robotics
+- HTML/CSS
+- Problem-Solving
+- Collaboration
+
+## Contact
+- Email: [myusufwlp@gmail.com](mailto:myusufwlp@gmail.com)  
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/)
