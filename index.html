@@ -1,332 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammad Yusuf's Portfolio</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Yusuf Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0b0c1a;
-      color: #fff;
-      overflow-x: hidden;
-      position: relative;
-    }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0b0c1a;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-    canvas#particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+  canvas#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      animation: fadeDown 1s ease;
-      font-family: 'Orbitron', sans-serif;
-      color: #00f0ff;
-    }
+  header {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #00f0ff;
+    animation: fadeDown 1s ease;
+  }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px #00f0ff;
-    }
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px #00f0ff;
+  }
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.8;
-    }
+  header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
 
-    nav {
-      text-align: center;
-      margin: 2rem 0;
-    }
+  nav {
+    text-align: center;
+    margin: 2rem 0;
+  }
 
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #00f0ff;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #00f0ff;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
 
-    nav a:hover {
-      color: #ff4ecd;
-      transform: scale(1.2);
-    }
+  nav a:hover {
+    color: #ff4ecd;
+    transform: scale(1.2);
+  }
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
 
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #00f0ff;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-      position: relative;
-      font-family: 'Orbitron', sans-serif;
-    }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #00f0ff;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    font-family: 'Orbitron', sans-serif;
+  }
 
-    h2::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 3px;
-      background: #ff4ecd;
-      margin-top: 5px;
-      transition: width 0.5s ease;
-    }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 
-    h2:hover::after { width: 100%; }
+  .card {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0,255,255,0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+  .card.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease-out;
+  }
 
-    .card {
-      background: rgba(0, 255, 255, 0.05);
-      border: 1px solid rgba(0,255,255,0.3);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 35px #ff4ecd, 0 0 50px #00f0ff;
+    border-color: #ff4ecd;
+  }
 
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease-out;
-    }
+  .card h3 {
+    margin-top: 0;
+    color: #00f0ff;
+  }
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 0 35px #ff4ecd, 0 0 50px #00f0ff;
-      border-color: #ff4ecd;
-    }
+  .card p, .card li {
+    color: #ccc;
+  }
 
-    .card h3 {
-      margin-top: 0;
-      color: #00f0ff;
-    }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
 
-    .card h3:hover {
-      color: #ff4ecd;
-    }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Animations */
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
-
-    /* Skill bars */
-    .skill {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 0.5rem 0;
-      height: 20px;
-      border: 1px solid #00f0ff;
-    }
-
-    .skill-fill {
-      height: 100%;
-      width: 0;
-      background: #ff4ecd;
-      transition: width 1s ease-in-out;
-    }
-  </style>
+</style>
 </head>
 <body>
-  <canvas id="particles"></canvas>
+<canvas id="particles"></canvas>
 
-  <header>
-    <h1>Mohammad Yusuf</h1>
-    <p>High School Junior | STEM Enthusiast | Robotics & Coding Explorer</p>
-  </header>
+<header>
+  <h1>Mohammad Yusuf</h1>
+  <p>High School Junior | STEM & Physics Enthusiast | Robotics & Coding Explorer</p>
+</header>
 
-  <nav>
-    <a href="mailto:myusufwlp@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/mohammadyusuf-hs/" target="_blank">LinkedIn</a>
-  </nav>
+<nav>
+  <a href="mailto:myusufwlp@gmail.com">Email</a>
+  <a href="https://www.linkedin.com/in/mohammadyusuf-hs/" target="_blank">LinkedIn</a>
+</nav>
 
-  <section>
-    <h2>Experience</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Xperience Consulting 501c3 — STEM Tutor Intern</h3>
-        <p><em>June 2025 – August 2025</em></p>
-        <ul>
-          <li>Led 4 multi-day STEM camps (15+ students each) on 3D printing, mechanics, coding, and circuits</li>
-          <li>Planned and taught lessons for 3D printing camp, guiding students through design-to-print projects</li>
-          <li>Fostered creativity, problem-solving, and teamwork through hands-on projects</li>
-        </ul>
-      </div>
+<section>
+  <h2>Experience</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Xperience Consulting 501c3 — STEM Tutor Intern</h3>
+      <p><em>June 2025 – August 2025</em></p>
+      <ul>
+        <li>Led 4 multi-day STEM camps (15+ students) teaching 3D printing, circuits, mechanics, and coding.</li>
+        <li>Guided students from design to execution of 3D printing projects.</li>
+        <li>Fostered creativity, problem-solving, and teamwork through physics & engineering-based projects.</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Spot Reservation Booking App</h3>
-        <p>Built with React, this app allows users to reserve event spots with live availability updates.</p>
-      </div>
-      <div class="card">
-        <h3>Visual Cursor Movement</h3>
-        <p>Created with OpenCV, enabling cursor control with eye movement for accessibility.</p>
-      </div>
-      <div class="card">
-        <h3>Coming Soon 🚀</h3>
-        <p>More exciting projects are in the works — stay tuned!</p>
-      </div>
+<section>
+  <h2>Projects</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Spot Reservation Booking App (React)</h3>
+      <p>Built a web app to manage event reservations efficiently for multiple users, implementing real-time availability updates and database sync.</p>
     </div>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Python</h3>
-        <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
-      </div>
-      <div class="card">
-        <h3>Robotics</h3>
-        <div class="skill"><div class="skill-fill" data-level="85%"></div></div>
-      </div>
-      <div class="card">
-        <h3>HTML/CSS</h3>
-        <div class="skill"><div class="skill-fill" data-level="95%"></div></div>
-      </div>
-      <div class="card">
-        <h3>Problem-Solving</h3>
-        <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
-      </div>
+    <div class="card">
+      <h3>Visual Cursor Movement (OpenCV)</h3>
+      <p>Developed a program enabling users to control their cursor with eye movement, integrating computer vision with live webcam tracking.</p>
     </div>
-  </section>
+    <div class="card">
+      <h3>Mental Health Diary Analyzer</h3>
+      <p>Created a tool to analyze user journals and suggest therapy options using text analysis algorithms and data-driven insights.</p>
+    </div>
+    <div class="card">
+      <h3>Smart Recycling Bin</h3>
+      <p>Designed an object-detection trash bin that automatically sorts recyclable vs. trash items using machine learning models and sensors.</p>
+    </div>
+    <div class="card">
+      <h3>Heart Disease Predictor (JavaScript)</h3>
+      <p>Built a risk prediction tool using medical data and questionnaires, highlighting correlations between key health metrics.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Mohammad Yusuf. All rights reserved.</p>
-  </footer>
+<section>
+  <h2>Awards</h2>
+  <div class="cards">
+    <div class="card"><h3>AP Scholar with Distinction (2025)</h3></div>
+    <div class="card"><h3>Science Olympiad: Robot Tour, 2nd Place State (2025)</h3></div>
+    <div class="card"><h3>ICTM Math Team State Champion (2025)</h3></div>
+    <div class="card"><h3>ICTM Calculator Team: 1st Place (2025)</h3></div>
+    <div class="card"><h3>ICTM 2-person Event: 2nd Place (2025)</h3></div>
+    <div class="card"><h3>HackVH Hackathon: 1st Place ($400) (2025)</h3></div>
+    <div class="card"><h3>STEAM Showcase: Runner-Up (2024 & 2025)</h3></div>
+    <div class="card"><h3>Sugarman Award for Spanish Excellence (2024 & 2025)</h3></div>
+  </div>
+</section>
 
-  <script>
-    // Animate cards on scroll
-    const cards = document.querySelectorAll('.card');
-    window.addEventListener('scroll', () => {
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100){
-          card.classList.add('show');
-        }
-      });
+<footer>
+  <p>© 2025 Mohammad Yusuf. All rights reserved.</p>
+</footer>
+
+<script>
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.card');
+  window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100){
+        card.classList.add('show');
+      }
     });
+  });
 
-    // Animate skill bars
-    const skills = document.querySelectorAll('.skill-fill');
-    window.addEventListener('scroll', () => {
-      skills.forEach(skill => {
-        const rect = skill.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 50){
-          skill.style.width = skill.dataset.level;
+  // Particle network background (physics vibes)
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particlesArray = [];
+  const numberOfParticles = 120;
+
+  class Particle {
+    constructor(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = Math.random() * 0.8 - 0.4;
+      this.speedY = Math.random() * 0.8 - 0.4;
+    }
+    update(){
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.y > canvas.height) this.y = 0;
+      if(this.y < 0) this.y = canvas.height;
+    }
+    draw(){
+      ctx.fillStyle = '#00f0ff';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI *2);
+      ctx.fill();
+    }
+  }
+
+  function init(){
+    for(let i=0;i<numberOfParticles;i++){
+      particlesArray.push(new Particle());
+    }
+  }
+
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p => { p.update(); p.draw(); });
+
+    // Connect particles like electron paths
+    for(let i=0;i<particlesArray.length;i++){
+      for(let j=i;j<particlesArray.length;j++){
+        const dx = particlesArray[i].x - particlesArray[j].x;
+        const dy = particlesArray[i].y - particlesArray[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 120){
+          ctx.strokeStyle = 'rgba(0,240,255,0.1)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+          ctx.stroke();
         }
-      });
-    });
+      }
+    }
 
-    // Particle network background
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+  });
 
-    const particlesArray = [];
-    const numberOfParticles = 100;
-
-    class Particle {
-      constructor(){
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-      }
-      update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x > canvas.width) this.x = 0;
-        if(this.x < 0) this.x = canvas.width;
-        if(this.y > canvas.height) this.y = 0;
-        if(this.y < 0) this.y = canvas.height;
-      }
-      draw(){
-        ctx.fillStyle = '#00f0ff';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI *2);
-        ctx.fill();
-      }
-    }
-
-    function init(){
-      for(let i=0;i<numberOfParticles;i++){
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animate(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particlesArray.forEach(p => {
-        p.update();
-        p.draw();
-      });
-
-      // Connect lines
-      for(let i=0;i<particlesArray.length;i++){
-        for(let j=i;j<particlesArray.length;j++){
-          const dx = particlesArray[i].x - particlesArray[j].x;
-          const dy = particlesArray[i].y - particlesArray[j].y;
-          const dist = Math.sqrt(dx*dx + dy*dy);
-          if(dist < 100){
-            ctx.strokeStyle = 'rgba(0,240,255,0.1)';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    init();
-    animate();
-  </script>
+  init();
+  animate();
+</script>
 </body>
 </html>
