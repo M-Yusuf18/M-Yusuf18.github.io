@@ -5,24 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yusuf's Portfolio</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a2e, #16213e);
+      background: #0b0c1a;
       color: #fff;
-      line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem;
       animation: fadeDown 1s ease;
+      font-family: 'Orbitron', sans-serif;
+      color: #00f0ff;
     }
 
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00f0ff;
     }
 
     header p {
@@ -38,12 +52,13 @@
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #00d9ff;
-      transition: color 0.3s ease;
+      color: #00f0ff;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     nav a:hover {
       color: #ff4ecd;
+      transform: scale(1.2);
     }
 
     section {
@@ -56,10 +71,24 @@
       text-align: center;
       font-size: 2rem;
       margin-bottom: 2rem;
-      border-bottom: 2px solid #00d9ff;
+      border-bottom: 2px solid #00f0ff;
       display: inline-block;
       padding-bottom: 0.3rem;
+      position: relative;
+      font-family: 'Orbitron', sans-serif;
     }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: #ff4ecd;
+      margin-top: 5px;
+      transition: width 0.5s ease;
+    }
+
+    h2:hover::after { width: 100%; }
 
     .cards {
       display: grid;
@@ -68,23 +97,36 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid rgba(0,255,255,0.3);
       padding: 1.5rem;
       border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeUp 1s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-out;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 35px #ff4ecd, 0 0 50px #00f0ff;
+      border-color: #ff4ecd;
     }
 
     .card h3 {
       margin-top: 0;
-      color: #00d9ff;
+      color: #00f0ff;
+    }
+
+    .card h3:hover {
+      color: #ff4ecd;
     }
 
     footer {
@@ -96,18 +138,30 @@
       opacity: 0.8;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Animations */
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
+
+    /* Skill bars */
+    .skill {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+      height: 20px;
+      border: 1px solid #00f0ff;
     }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      background: #ff4ecd;
+      transition: width 1s ease-in-out;
     }
   </style>
 </head>
 <body>
+  <canvas id="particles"></canvas>
+
   <header>
     <h1>Mohammad Yusuf</h1>
     <p>High School Junior | STEM Enthusiast | Robotics & Coding Explorer</p>
@@ -152,47 +206,127 @@
   </section>
 
   <section>
-    <h2>Awards</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>AP Scholar with Distinction</h3>
-      </div>
-      <div class="card">
-        <h3>2nd Place — Science Olympiad State</h3>
-        <p>Robot Tour Event (2025)</p>
-      </div>
-      <div class="card">
-        <h3>ICTM Math Team State Champion</h3>
-        <p>1st in Calculator Team, 2nd in 2-Person Event (2025)</p>
-      </div>
-      <div class="card">
-        <h3>HackVH — 1st Place</h3>
-        <p>Won $400 prize for an innovative CS project (2025)</p>
-      </div>
-      <div class="card">
-        <h3>STEAM Showcase Runner-Up</h3>
-        <p>Recognized for Health Science Application (2024 & 2025)</p>
-      </div>
-      <div class="card">
-        <h3>Sugarman Award</h3>
-        <p>Excellence in Spanish (2024 & 2025)</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <h2>Skills</h2>
     <div class="cards">
-      <div class="card"><h3>Python</h3></div>
-      <div class="card"><h3>Robotics</h3></div>
-      <div class="card"><h3>HTML/CSS</h3></div>
-      <div class="card"><h3>Problem-Solving</h3></div>
-      <div class="card"><h3>Collaboration</h3></div>
+      <div class="card">
+        <h3>Python</h3>
+        <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
+      </div>
+      <div class="card">
+        <h3>Robotics</h3>
+        <div class="skill"><div class="skill-fill" data-level="85%"></div></div>
+      </div>
+      <div class="card">
+        <h3>HTML/CSS</h3>
+        <div class="skill"><div class="skill-fill" data-level="95%"></div></div>
+      </div>
+      <div class="card">
+        <h3>Problem-Solving</h3>
+        <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
+      </div>
     </div>
   </section>
 
   <footer>
     <p>© 2025 Mohammad Yusuf. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Animate cards on scroll
+    const cards = document.querySelectorAll('.card');
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+          card.classList.add('show');
+        }
+      });
+    });
+
+    // Animate skill bars
+    const skills = document.querySelectorAll('.skill-fill');
+    window.addEventListener('scroll', () => {
+      skills.forEach(skill => {
+        const rect = skill.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50){
+          skill.style.width = skill.dataset.level;
+        }
+      });
+    });
+
+    // Particle network background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particlesArray = [];
+    const numberOfParticles = 100;
+
+    class Particle {
+      constructor(){
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+      update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x > canvas.width) this.x = 0;
+        if(this.x < 0) this.x = canvas.width;
+        if(this.y > canvas.height) this.y = 0;
+        if(this.y < 0) this.y = canvas.height;
+      }
+      draw(){
+        ctx.fillStyle = '#00f0ff';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI *2);
+        ctx.fill();
+      }
+    }
+
+    function init(){
+      for(let i=0;i<numberOfParticles;i++){
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      // Connect lines
+      for(let i=0;i<particlesArray.length;i++){
+        for(let j=i;j<particlesArray.length;j++){
+          const dx = particlesArray[i].x - particlesArray[j].x;
+          const dy = particlesArray[i].y - particlesArray[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if(dist < 100){
+            ctx.strokeStyle = 'rgba(0,240,255,0.1)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    init();
+    animate();
+  </script>
 </body>
 </html>
