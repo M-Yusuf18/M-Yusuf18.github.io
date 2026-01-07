@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammad Yusuf Portfolio</title>
+<title>Mohammad Yusuf – Physics & CS Portfolio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -27,105 +26,72 @@
 
   header {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     font-family: 'Orbitron', sans-serif;
     color: #00f0ff;
-    animation: fadeDown 1s ease;
   }
-
   header h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px #00f0ff;
+    font-size: 3.5rem;
+    text-shadow: 0 0 15px #00f0ff;
   }
+  header p { font-size: 1.3rem; opacity: 0.8; }
 
-  header p {
-    font-size: 1.2rem;
-    opacity: 0.8;
-  }
-
-  nav {
-    text-align: center;
-    margin: 2rem 0;
-  }
-
+  nav { text-align: center; margin: 2rem 0; }
   nav a {
     margin: 0 1rem;
     text-decoration: none;
     color: #00f0ff;
+    font-weight: bold;
     transition: transform 0.3s ease, color 0.3s ease;
   }
-
-  nav a:hover {
-    color: #ff4ecd;
-    transform: scale(1.2);
-  }
+  nav a:hover { color: #ff49c8; transform: scale(1.15); }
 
   section {
     padding: 3rem 2rem;
     max-width: 1000px;
     margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #00f0ff;
-    display: inline-block;
+    font-size: 2.5rem;
+    border-bottom: 3px solid #00f0ff;
     padding-bottom: 0.3rem;
+    margin-bottom: 2rem;
     font-family: 'Orbitron', sans-serif;
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1.8rem; }
 
   .card {
-    background: rgba(0, 255, 255, 0.05);
-    border: 1px solid rgba(0,255,255,0.3);
-    padding: 1.5rem;
+    background: rgba(0,255,255,0.08);
+    border: 1px solid rgba(0,255,255,0.35);
+    padding: 1.8rem;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,255,255,0.2);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    backdrop-filter: blur(6px);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
   }
-
-  .card.show {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.6s ease-out;
-  }
-
   .card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 35px #ff4ecd, 0 0 50px #00f0ff;
-    border-color: #ff4ecd;
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 0 35px #ff49c8, 0 0 50px #00fcff;
+    border-color: #ff49c8;
   }
+  .card h3 { color: #00f0ff; margin-top: 0; }
+  .card p, .card li { color: #ccc; }
 
-  .card h3 {
-    margin-top: 0;
-    color: #00f0ff;
-  }
+  /* Skill Bars */
+  .skill { background: rgba(0,255,255,0.05); border-radius: 10px; overflow: hidden; margin: 0.6rem 0; height: 22px; border: 1px solid #00f0ff; }
+  .skill-fill { height: 100%; width: 0; background: #ff49c8; transition: width 1.2s ease-in-out; }
 
-  .card p, .card li {
-    color: #ccc;
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-
-  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
+  footer { text-align: center; padding: 2rem; font-size: 0.9rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); }
 
 </style>
 </head>
@@ -134,7 +100,7 @@
 
 <header>
   <h1>Mohammad Yusuf</h1>
-  <p>High School Junior | STEM & Physics Enthusiast | Robotics & Coding Explorer</p>
+  <p>High School Junior | Physics & CS Explorer | Robotics & ML Enthusiast</p>
 </header>
 
 <nav>
@@ -142,147 +108,157 @@
   <a href="https://www.linkedin.com/in/mohammadyusuf-hs/" target="_blank">LinkedIn</a>
 </nav>
 
-<section>
-  <h2>Experience</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Xperience Consulting 501c3 — STEM Tutor Intern</h3>
-      <p><em>June 2025 – August 2025</em></p>
-      <ul>
-        <li>Led 4 multi-day STEM camps (15+ students) teaching 3D printing, circuits, mechanics, and coding.</li>
-        <li>Guided students from design to execution of 3D printing projects.</li>
-        <li>Fostered creativity, problem-solving, and teamwork through physics & engineering-based projects.</li>
-      </ul>
-    </div>
+<section id="experience">
+<h2>Experience</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Xperience Consulting 501c3 — STEM Tutor Intern</h3>
+    <p><strong>June – August 2025</strong></p>
+    <ul>
+      <li>Led multi-day STEM camps teaching 3D printing, physics, circuits, and coding to 15+ students.</li>
+      <li>Guided students through design-to-print projects emphasizing mechanics and applied physics.</li>
+      <li>Developed lesson plans integrating robotics and problem-solving challenges.</li>
+    </ul>
   </div>
+</div>
 </section>
 
-<section>
-  <h2>Projects</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Spot Reservation Booking App (React)</h3>
-      <p>Built a web app to manage event reservations efficiently for multiple users, implementing real-time availability updates and database sync.</p>
-    </div>
-    <div class="card">
-      <h3>Visual Cursor Movement (OpenCV)</h3>
-      <p>Developed a program enabling users to control their cursor with eye movement, integrating computer vision with live webcam tracking.</p>
-    </div>
-    <div class="card">
-      <h3>Mental Health Diary Analyzer</h3>
-      <p>Created a tool to analyze user journals and suggest therapy options using text analysis algorithms and data-driven insights.</p>
-    </div>
-    <div class="card">
-      <h3>Smart Recycling Bin</h3>
-      <p>Designed an object-detection trash bin that automatically sorts recyclable vs. trash items using machine learning models and sensors.</p>
-    </div>
-    <div class="card">
-      <h3>Heart Disease Predictor (JavaScript)</h3>
-      <p>Built a risk prediction tool using medical data and questionnaires, highlighting correlations between key health metrics.</p>
-    </div>
+<section id="projects">
+<h2>Projects</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Spot Reservation Booking App (React)</h3>
+    <p>Web app managing event reservations with real-time availability updates and multi-user functionality.</p>
   </div>
+  <div class="card">
+    <h3>Visual Cursor Movement (OpenCV)</h3>
+    <p>Controlled cursor with eye movement via webcam, combining computer vision with interactive accessibility.</p>
+  </div>
+  <div class="card">
+    <h3>Mental Health Diary Analyzer</h3>
+    <p>Text analysis tool evaluating mood, providing insights, and suggesting therapy approaches.</p>
+  </div>
+  <div class="card">
+    <h3>Smart Recycling Bin</h3>
+    <p>AI object detection bin automatically sorts recyclables and trash, integrating sensors and ML.</p>
+  </div>
+  <div class="card">
+    <h3>Heart Disease Predictor (JavaScript)</h3>
+    <p>Predicts cardiovascular risk from medical data and user questionnaires with interactive results display.</p>
+  </div>
+</div>
 </section>
 
-<section>
-  <h2>Awards</h2>
-  <div class="cards">
-    <div class="card"><h3>AP Scholar with Distinction (2025)</h3></div>
-    <div class="card"><h3>Science Olympiad: Robot Tour, 2nd Place State (2025)</h3></div>
-    <div class="card"><h3>ICTM Math Team State Champion (2025)</h3></div>
-    <div class="card"><h3>ICTM Calculator Team: 1st Place (2025)</h3></div>
-    <div class="card"><h3>ICTM 2-person Event: 2nd Place (2025)</h3></div>
-    <div class="card"><h3>HackVH Hackathon: 1st Place ($400) (2025)</h3></div>
-    <div class="card"><h3>STEAM Showcase: Runner-Up (2024 & 2025)</h3></div>
-    <div class="card"><h3>Sugarman Award for Spanish Excellence (2024 & 2025)</h3></div>
-  </div>
+<section id="awards">
+<h2>Awards & Honors</h2>
+<div class="cards">
+  <div class="card"><h3>AP Scholar with Distinction (2025)</h3></div>
+  <div class="card"><h3>Science Olympiad: Robot Tour, 2nd Place State (2025)</h3></div>
+  <div class="card"><h3>ICTM Math Team State Champion (2025)</h3></div>
+  <div class="card"><h3>ICTM Calculator Team: 1st Place (2025)</h3></div>
+  <div class="card"><h3>ICTM Math 2-person Event: 2nd Place (2025)</h3></div>
+  <div class="card"><h3>HackVH Hackathon: 1st Place ($400) (2025)</h3></div>
+  <div class="card"><h3>STEAM Showcase Runner-Up (2024 & 2025)</h3></div>
+  <div class="card"><h3>Sugarman Award for Spanish Excellence (2024 & 2025)</h3></div>
+</div>
 </section>
 
-<footer>
-  <p>© 2025 Mohammad Yusuf. All rights reserved.</p>
-</footer>
+<section id="skills">
+<h2>Skills</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Python</h3>
+    <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Robotics</h3>
+    <div class="skill"><div class="skill-fill" data-level="85%"></div></div>
+  </div>
+  <div class="card">
+    <h3>HTML/CSS</h3>
+    <div class="skill"><div class="skill-fill" data-level="95%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Problem-Solving</h3>
+    <div class="skill"><div class="skill-fill" data-level="90%"></div></div>
+  </div>
+</div>
+</section>
+
+<footer>© 2025 Mohammad Yusuf</footer>
 
 <script>
-  // Animate cards on scroll
-  const cards = document.querySelectorAll('.card');
-  window.addEventListener('scroll', () => {
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 100){
-        card.classList.add('show');
-      }
-    });
+// Scroll-triggered card animations
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    if (sec.getBoundingClientRect().top < window.innerHeight - 100) sec.classList.add("visible");
   });
+});
 
-  // Particle network background (physics vibes)
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+// Animate skill bars
+const skills = document.querySelectorAll('.skill-fill');
+window.addEventListener('scroll', () => {
+  skills.forEach(skill => {
+    const rect = skill.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50) skill.style.width = skill.dataset.level;
+  });
+});
 
-  const particlesArray = [];
-  const numberOfParticles = 120;
-
-  class Particle {
-    constructor(){
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 1;
-      this.speedX = Math.random() * 0.8 - 0.4;
-      this.speedY = Math.random() * 0.8 - 0.4;
-    }
-    update(){
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if(this.x > canvas.width) this.x = 0;
-      if(this.x < 0) this.x = canvas.width;
-      if(this.y > canvas.height) this.y = 0;
-      if(this.y < 0) this.y = canvas.height;
-    }
-    draw(){
-      ctx.fillStyle = '#00f0ff';
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI *2);
-      ctx.fill();
-    }
+// Persistent particle network (physics-inspired)
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+let particles = [];
+class Particle {
+  constructor() {
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.vx = (Math.random()-0.5)*0.8;
+    this.vy = (Math.random()-0.5)*0.8;
+    this.size = Math.random()*2+1;
   }
-
-  function init(){
-    for(let i=0;i<numberOfParticles;i++){
-      particlesArray.push(new Particle());
-    }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if(this.x<0||this.x>canvas.width) this.vx*=-1;
+    if(this.y<0||this.y>canvas.height) this.vy*=-1;
   }
+  draw() {
+    ctx.fillStyle="#00fcff";
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
 
-  function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p => { p.update(); p.draw(); });
+for(let i=0;i<140;i++) particles.push(new Particle());
 
-    // Connect particles like electron paths
-    for(let i=0;i<particlesArray.length;i++){
-      for(let j=i;j<particlesArray.length;j++){
-        const dx = particlesArray[i].x - particlesArray[j].x;
-        const dy = particlesArray[i].y - particlesArray[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if(dist < 120){
-          ctx.strokeStyle = 'rgba(0,240,255,0.1)';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-          ctx.stroke();
-        }
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{p.update(); p.draw();});
+
+  // Draw connecting lines like electron paths
+  for(let i=0;i<particles.length;i++){
+    for(let j=i;j<particles.length;j++){
+      const dx = particles[i].x-particles[j].x;
+      const dy = particles[i].y-particles[j].y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.strokeStyle = 'rgba(0,252,255,0.1)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y);
+        ctx.stroke();
       }
     }
-
-    requestAnimationFrame(animate);
   }
+  requestAnimationFrame(animate);
+}
 
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
-
-  init();
-  animate();
+window.addEventListener('resize', () => {canvas.width=innerWidth; canvas.height=innerHeight;});
+animate();
 </script>
 </body>
 </html>
