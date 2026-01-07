@@ -124,30 +124,67 @@
 </section>
 
 <section id="projects">
-<h2>Projects</h2>
-<div class="cards">
-  <div class="card">
-    <h3>Spot Reservation Booking App (React)</h3>
-    <p>Web app managing event reservations with real-time availability updates and multi-user functionality.</p>
+  <h2>Projects</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Spot Reservation Booking App (React)</h3>
+      <p><strong>Overview:</strong> Developed a full-stack React web app to allow users to reserve spots for STEM events with live availability tracking.</p>
+      <ul>
+        <li>Implemented a **dynamic calendar system** showing up-to-date availability for each date.</li>
+        <li>Used Firebase for real-time database syncing, ensuring multiple users could book simultaneously without conflicts.</li>
+        <li>Applied **algorithmic scheduling logic** to prevent double-booking, demonstrating applied CS problem-solving.</li>
+        <li>Integrated front-end animations to improve UX and show “loading/reserving” feedback in a physics-inspired smooth motion style.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Visual Cursor Movement (OpenCV)</h3>
+      <p><strong>Overview:</strong> Built a computer vision tool that allows users to control their cursor using **eye movement tracking**, enhancing accessibility.</p>
+      <ul>
+        <li>Captured real-time webcam input and processed facial landmarks with OpenCV.</li>
+        <li>Mapped **eye gaze coordinates** to screen positions using coordinate transformations (linear algebra + scaling factors).</li>
+        <li>Implemented smoothing algorithms to reduce jitter—using weighted averages, akin to motion damping in physics.</li>
+        <li>Tested with multiple users to calibrate speed and responsiveness.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Mental Health Diary Analyzer</h3>
+      <p><strong>Overview:</strong> Created a tool that analyzes users’ diary entries and provides actionable insights or therapy suggestions.</p>
+      <ul>
+        <li>Used **natural language processing (NLP)** to detect mood, sentiment, and recurring topics.</li>
+        <li>Designed scoring metrics to quantify stress or anxiety levels, inspired by statistical methods.</li>
+        <li>Built a dashboard with visual feedback: charts show mood trends over time.</li>
+        <li>Applied **data filtering and aggregation techniques**, reflecting how physics experiments analyze signal vs noise.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Smart Recycling Bin</h3>
+      <p><strong>Overview:</strong> Developed an automated recycling bin using object detection to sort recyclables and trash.</p>
+      <ul>
+        <li>Trained a **machine learning model** to classify items using TensorFlow and a webcam feed.</li>
+        <li>Integrated **sensor-triggered motors** to open the correct bin flap upon detection.</li>
+        <li>Used Python and Arduino to bridge software and hardware, demonstrating applied physics for mechanical motion.</li>
+        <li>Tested the system with various household items to optimize detection accuracy and sorting speed.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Heart Disease Predictor (JavaScript)</h3>
+      <p><strong>Overview:</strong> Built an interactive web app predicting heart disease risk based on user inputs and historical datasets.</p>
+      <ul>
+        <li>Implemented **risk calculation algorithms** using JavaScript logic and weighted health factors.</li>
+        <li>Displayed **real-time results** with animated gauges and charts for a clear visual interface.</li>
+        <li>Applied statistical analysis concepts to evaluate risk factors, similar to modeling uncertainty in physics experiments.</li>
+        <li>Designed responsive UI and feedback loops to guide users toward healthier choices.</li>
+      </ul>
+    </div>
+
   </div>
-  <div class="card">
-    <h3>Visual Cursor Movement (OpenCV)</h3>
-    <p>Controlled cursor with eye movement via webcam, combining computer vision with interactive accessibility.</p>
-  </div>
-  <div class="card">
-    <h3>Mental Health Diary Analyzer</h3>
-    <p>Text analysis tool evaluating mood, providing insights, and suggesting therapy approaches.</p>
-  </div>
-  <div class="card">
-    <h3>Smart Recycling Bin</h3>
-    <p>AI object detection bin automatically sorts recyclables and trash, integrating sensors and ML.</p>
-  </div>
-  <div class="card">
-    <h3>Heart Disease Predictor (JavaScript)</h3>
-    <p>Predicts cardiovascular risk from medical data and user questionnaires with interactive results display.</p>
-  </div>
-</div>
 </section>
+
 
 <section id="awards">
 <h2>Awards & Honors</h2>
